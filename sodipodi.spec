@@ -11,10 +11,10 @@ Patch0:		%{name}-desktop.patch
 URL:		http://sodipodi.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 2.0.0
 BuildRequires:	libart_lgpl-devel >= 2.3.10
 BuildRequires:	libxml2-devel >= 2.4.24
-BuildRequires:	gettext-devel
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -54,4 +54,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_mandir}/man1/*
 %{_pixmapsdir}/*
 %{_datadir}/applications/*
-%{_libdir}/%name
+%{_libdir}/%{name}
