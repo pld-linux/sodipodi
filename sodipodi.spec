@@ -6,6 +6,7 @@ Release:	0.1
 License:	GPL
 Group:		Applications/Graphics
 Source0:	http://download.sourceforge.net/sodipodi/%{name}-%{version}.tar.gz
+Patch0:		%{name}-oaf.patch
 URL:		http://sodipodi.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
