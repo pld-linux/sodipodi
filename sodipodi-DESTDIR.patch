@@ -1,16 +1,27 @@
-diff -Nru sodipodi-0.18/Makefile.am sodipodi-0.18.new/Makefile.am
---- sodipodi-0.18/Makefile.am	Tue Mar 28 23:20:58 2000
-+++ sodipodi-0.18.new/Makefile.am	Thu Apr  6 00:59:15 2000
-@@ -16,10 +16,10 @@
- install-data-local:
- 	@$(NORMAL_INSTALL)
- 	if test -d $(srcdir)/glade; then \
+diff -Nru sodipodi-0.21/Makefile.am sodipodi-0.21.new/Makefile.am
+--- sodipodi-0.21/Makefile.am	Sat Jan 27 04:41:37 2001
++++ sodipodi-0.21.new/Makefile.am	Sat Jan 27 04:17:38 2001
+@@ -21,22 +21,8 @@
+ 
+ if BONOBO
+ install-exec-local:
+-	if test -r $(bindir)/sodipodi-bonobo; then \
+-		rm -f $(bindir)/sodipodi-bonobo; \
+-	fi ; \
+-	ln -s $(bindir)/sodipodi $(bindir)/sodipodi-bonobo
++	ln -sf sodipodi $(DESTDIR)$(bindir)/sodipodi-bonobo
+ endif
+-
+-install-data-local:
+-	@$(NORMAL_INSTALL)
+-	if test -d $(srcdir)/glade; then \
 -	  $(mkinstalldirs) $(datadir)/sodipodi; \
-+	  $(mkinstalldirs) $(DESTDIR)$(datadir)/sodipodi; \
- 	  for uifile in $(srcdir)/glade/*; do \
- 	    if test -f $$uifile; then \
+-	  for uifile in $(srcdir)/glade/*; do \
+-	    if test -f $$uifile; then \
 -	      $(INSTALL_DATA) $$uifile $(datadir)/sodipodi; \
-+	      $(INSTALL_DATA) $$uifile $(DESTDIR)$(datadir)/sodipodi; \
- 	    fi \
- 	  done \
- 	fi
+-	    fi \
+-	  done \
+-	fi
+ 
+ dist-hook:
+ 	mkdir $(distdir)/samples
