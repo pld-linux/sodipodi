@@ -39,8 +39,8 @@ Sodipodi jest ogólnym programem do rysowania wektorowego dla
 rm -f missing
 gettextize --copy --force
 aclocal -I macros
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 %configure
 %{__make}
 
