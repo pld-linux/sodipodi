@@ -1,0 +1,16 @@
+diff -Nru sodipodi-0.18/Makefile.am sodipodi-0.18.new/Makefile.am
+--- sodipodi-0.18/Makefile.am	Tue Mar 28 23:20:58 2000
++++ sodipodi-0.18.new/Makefile.am	Thu Apr  6 00:59:15 2000
+@@ -16,10 +16,10 @@
+ install-data-local:
+ 	@$(NORMAL_INSTALL)
+ 	if test -d $(srcdir)/glade; then \
+-	  $(mkinstalldirs) $(datadir)/sodipodi; \
++	  $(mkinstalldirs) $(DESTDIR)$(datadir)/sodipodi; \
+ 	  for uifile in $(srcdir)/glade/*; do \
+ 	    if test -f $$uifile; then \
+-	      $(INSTALL_DATA) $$uifile $(datadir)/sodipodi; \
++	      $(INSTALL_DATA) $$uifile $(DESTDIR)$(datadir)/sodipodi; \
+ 	    fi \
+ 	  done \
+ 	fi
