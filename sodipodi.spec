@@ -36,7 +36,7 @@ Sodipodi jest ogólnym programem do rysowania wektorowego dla
 touch po/POTFILES
 rm -f missing
 %{__gettextize}
-aclocal -I macros
+%{__aclocal} -I macros
 %{__automake}
 %{__autoconf}
 %configure
