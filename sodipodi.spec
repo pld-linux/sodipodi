@@ -19,7 +19,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gettext-devel
 BuildRequires:	freetype-devel
-BuildRequires:	gtk+2-devel >= 2.0.0
+BuildRequires:	gtk+2-devel >= 1:2.0.0
 BuildRequires:	libart_lgpl-devel >= 2.3.10
 %{?with_gnome:BuildRequires:	libgnomeprint-devel >= 2.0.0}
 BuildRequires:	libpng-devel
