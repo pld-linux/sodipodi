@@ -18,6 +18,8 @@ BuildRequires:	libxml2-devel >= 2.4.24
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		_noautoreq	"perl(XML::XQL) perl(XML::XQL::DOM)"
+
 %description
 Sodipodi is a general vector drawing program for GNOME environment.
 
