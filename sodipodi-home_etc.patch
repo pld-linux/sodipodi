@@ -1,0 +1,102 @@
+diff -Nru sodipodi-0.32.orig/src/libnrtype/nr-type-directory.c sodipodi-0.32/src/libnrtype/nr-type-directory.c
+--- sodipodi-0.32.orig/src/libnrtype/nr-type-directory.c	2003-05-27 20:04:27.000000000 +0200
++++ sodipodi-0.32/src/libnrtype/nr-type-directory.c	2003-11-19 10:40:25.000000000 +0100
+@@ -451,7 +451,8 @@
+ 	int len;
+ 	struct stat st;
+ 
+-	homedir = getenv ("HOME");
++	homedir = getenv("HOME_ETC");
++	if (!homedir)	homedir = getenv ("HOME");
+ 	if (!homedir) return;
+ 	len = strlen (homedir);
+ 	filename = nr_new (unsigned char, len + sizeof (privatename) + 1);
+diff -Nru sodipodi-0.32.orig/src/sodipodi.c sodipodi-0.32/src/sodipodi.c
+--- sodipodi-0.32.orig/src/sodipodi.c	2003-06-16 01:03:03.000000000 +0200
++++ sodipodi-0.32/src/sodipodi.c	2003-11-19 10:37:48.000000000 +0100
+@@ -324,6 +324,7 @@
+ 	static gint recursion = FALSE;
+ 	GSList *savednames, *failednames, *l;
+ 	const gchar *home;
++	const gchar *home_etc;
+ 	gchar *istr, *sstr, *fstr, *b;
+ 	gint count, nllen, len, pos;
+ 	time_t sptime;
+@@ -338,6 +339,7 @@
+ 	g_warning ("Emergency save activated");
+ 
+ 	home = g_get_home_dir ();
++	home_etc = getenv("HOME_ETC");
+ 	sptime = time (NULL);
+ 	sptm = localtime (&sptime);
+ 	strftime (sptstr, 256, "%Y_%m_%d_%H_%M_%S", sptm);
+@@ -379,10 +381,10 @@
+ 			}
+ #endif
+ 			if (!docname || !*docname) docname = "emergency";
+-			g_snprintf (c, 1024, "%s/.sodipodi/%.256s.%s.%d", home, docname, sptstr, count);
++			g_snprintf (c, 1024, "%s/.sodipodi/%.256s.%s.%d", home_etc ? home_etc : home, docname, sptstr, count);
+ 			file = fopen (c, "w");
+ 			if (!file) {
+-				g_snprintf (c, 1024, "%s/sodipodi-%.256s.%s.%d", home, docname, sptstr, count);
++				g_snprintf (c, 1024, "%s/sodipodi-%.256s.%s.%d", home_etc ? home_etc : home, docname, sptstr, count);
+ 				file = fopen (c, "w");
+ 			}
+ 			if (!file) {
+@@ -499,6 +501,7 @@
+ 		      const unsigned char *e_notreg, const unsigned char *e_notxml, const unsigned char *e_notsp)
+ {
+ 	gchar *fn;
++	gchar *home_etc = getenv("HOME_ETC");
+ 	struct stat s;
+ 	GtkWidget * w;
+ 	SPReprDoc * doc;
+@@ -507,7 +510,7 @@
+ #ifdef WIN32
+ 	fn = g_strdup_printf ("sodipodi/%s", filename);
+ #else
+-	fn = g_build_filename (g_get_home_dir (), ".sodipodi", filename, NULL);
++	fn = g_build_filename (home_etc ? home_etc : g_get_home_dir (), ".sodipodi", filename, NULL);
+ #endif
+ 	if (stat (fn, &s)) {
+ 		/* No such file */
+@@ -597,11 +600,12 @@
+ sodipodi_save_preferences (Sodipodi * sodipodi)
+ {
+ 	gchar * fn;
++	gchar *home_etc = getenv("HOME_ETC");
+ 
+ #ifdef WIN32
+ 	fn = g_strdup ("sodipodi/preferences");
+ #else
+-	fn = g_build_filename (g_get_home_dir (), ".sodipodi/preferences", NULL);
++	fn = g_build_filename (home_etc ? home_etc : g_get_home_dir (), ".sodipodi/preferences", NULL);
+ #endif
+ 
+ 	sp_repr_save_file (sodipodi->preferences, fn);
+@@ -863,6 +867,7 @@
+ 		      const unsigned char *e_mkdir, const unsigned char *e_notdir, const unsigned char *e_ccf, const unsigned char *e_cwf)
+ {
+ 	gchar * dn, *fn;
++	gchar *home_etc = getenv("HOME_ETC");
+ 	struct stat s;
+ 	int fh;
+ 	GtkWidget * w;
+@@ -870,7 +875,7 @@
+ #ifdef WIN32
+ 	dn = g_strdup ("sodipodi");
+ #else
+-	dn = g_build_filename (g_get_home_dir (), ".sodipodi", NULL);
++	dn = g_build_filename (home_etc ? home_etc : g_get_home_dir (), ".sodipodi", NULL);
+ #endif
+ 	if (stat (dn, &s)) {
+ 		if (mkdir (dn, S_IRWXU | S_IRGRP | S_IXGRP))
+@@ -896,7 +901,7 @@
+ 	fn = g_strdup_printf ("sodipodi/%s", config_name);
+ 	fh = creat (fn, S_IREAD | S_IWRITE);
+ #else
+-	fn = g_build_filename (g_get_home_dir (), ".sodipodi", config_name, NULL);
++	fn = g_build_filename (home_etc ? home_etc : g_get_home_dir (), ".sodipodi", config_name, NULL);
+ 	fh = creat (fn, S_IRUSR | S_IWUSR | S_IRGRP);
+ #endif
+ 	if (fh < 0) {
