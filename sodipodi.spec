@@ -5,8 +5,6 @@ Version:	0.24.1
 Release:	3
 License:	GPL
 Group:		Applications/Graphics
-Group(de):	Applikationen/Grafik
-Group(pl):	Aplikacje/Grafika
 Source0:	http://download.sourceforge.net/sodipodi/%{name}-%{version}.tar.gz
 Patch0:		%{name}-am15.patch
 Patch1:		%{name}-includes.patch
