@@ -1,0 +1,11 @@
+--- sodipodi-0.23/src/Makefile.am~	Fri May 18 16:26:57 2001
++++ sodipodi-0.23/src/Makefile.am	Mon Sep 10 02:04:38 2001
+@@ -99,7 +99,7 @@
+ 	\
+ 	preferences-skeleton.h
+ 
+-#	font-wrapper.c font-wrapper.h \
++#	font-wrapper.c font-wrapper.h
+ 
+ sodipodi_private_libs = \
+ 	dialogs/libspdialogs.a \
