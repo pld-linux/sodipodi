@@ -18,6 +18,9 @@ BuildRequires:	libxml2-devel >= 2.4.24
 BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		_prefix		/usr/X11R6
+%define		_mandir		%{_prefix}/man
+%define		_sysconfdir	/etc/X11/GNOME
 %define		_noautoreq	'perl(XML::XQL)' 'perl(XML::XQL::DOM)'
 
 %description
@@ -41,7 +44,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	Graphicsdir=%{_desktopdir}
+	Graphicsdir=%{_applnkdir}/Graphics
 
 %find_lang %{name}
 
@@ -55,5 +58,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/sodipodi
 %{_mandir}/man1/*
 %{_pixmapsdir}/*
-%{_desktopdir}/*
+%{_applnkdir}/Graphics/*
 %{_libdir}/%{name}
