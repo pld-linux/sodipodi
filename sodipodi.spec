@@ -5,7 +5,7 @@ Release:	1
 License:	GPL
 Group:		Applications/Graphics
 Group(pl):	Aplikacje/Grafika
-Source0:	http://download.sourceforge.net/sodipodi/%{name}-%{version}.tar.gz
+Source0:	ftp://download.sourceforge.net/pub/sourceforge/sodipodi/%{name}-%{version}.tar.gz
 Patch0:		sodipodi-DESTDIR.patch
 URL:		http://www.ariman.ee/linux/sodipodi/
 BuildRequires:	gettext-devel
