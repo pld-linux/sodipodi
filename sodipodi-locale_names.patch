@@ -1,0 +1,11 @@
+--- sodipodi-0.34/configure.in~	Fri Jul 23 10:52:34 2004
++++ sodipodi-0.34/configure.in	Fri Jul 23 10:52:34 2004
+@@ -34,7 +34,7 @@
+ AC_SUBST(GETTEXT_PACKAGE)
+ AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE",[Translation domain used])
+ dnl Add the languages which your application supports here.
+-ALL_LINGUAS="am az be ca cs da de el es et fi fr ga gl hr hu it ja ko mk nl no pl pt_BR pt ru sk sl sr sr@Latn sv tr uk zh_CN"
++ALL_LINGUAS="am az be ca cs da de el es et fi fr ga gl hr hu it ja ko mk nb nl pl pt_BR pt ru sk sl sr sr@Latn sv tr uk zh_CN"
+ AM_GLIB_GNU_GETTEXT
+ 
+ dnl ******************************
