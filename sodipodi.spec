@@ -7,6 +7,7 @@ Group:		Applications/Graphics
 Group(de):	Applikationen/Grafik
 Group(pl):	Aplikacje/Grafika
 Source0:	http://download.sourceforge.net/sodipodi/%{name}-%{version}.tar.gz
+Patch0:		%{name}-am15.patch
 URL:		http://sodipodi.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -26,12 +27,13 @@ Sodipodi is a gneneral vector drawing program for GNOME environment.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
+rm -f missing
 gettextize --copy --force
 aclocal -I macros
 autoconf
-rm -f missing
 automake -a -c
 %configure
 %{__make}
