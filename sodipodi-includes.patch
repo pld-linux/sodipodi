@@ -1,0 +1,69 @@
+diff -urN sodipodi-0.24.orig/configure.in sodipodi-0.24/configure.in
+--- sodipodi-0.24.orig/configure.in	Tue Sep 25 17:23:36 2001
++++ sodipodi-0.24/configure.in	Sun Nov 25 00:34:07 2001
+@@ -159,6 +159,12 @@
+ SODIPODI_LIBS=`$GNOME_CONFIG --libs gal gdk_pixbuf gdk_pixbuf_xlib libart libglade print $XML_KEY`
+ SODIPODI_LIBS="$SODIPODI_LIBS -lpng -lz"
+ 
++PIXBUF_CFLAGS=`$GNOME_CONFIG --cflags gdk_pixbuf`
++AC_SUBST(PIXBUF_CFLAGS)
++
++GLADE_CFLAGS=`$GNOME_CONFIG --cflags libglade`
++AC_SUBST(GLADE_CFLAGS)
++
+ dnl ******************************
+ dnl system libwmf support
+ dnl ******************************
+diff -urN sodipodi-0.24.orig/src/bonobo/Makefile.am sodipodi-0.24/src/bonobo/Makefile.am
+--- sodipodi-0.24.orig/src/bonobo/Makefile.am	Tue Apr 11 01:04:07 2000
++++ sodipodi-0.24/src/bonobo/Makefile.am	Sun Nov 25 00:34:29 2001
+@@ -5,7 +5,8 @@
+ 
+ INCLUDES = \
+ 	-I$(includedir) \
+-	-I$(GNOME_INCLUDEDIR)
++	$(GNOME_INCLUDEDIR) \
++	@PIXBUF_CFLAGS@
+ 
+ noinst_LIBRARIES = libspbonobo.a
+ 
+diff -urN sodipodi-0.24.orig/src/dialogs/Makefile.am sodipodi-0.24/src/dialogs/Makefile.am
+--- sodipodi-0.24.orig/src/dialogs/Makefile.am	Tue Sep  4 02:52:43 2001
++++ sodipodi-0.24/src/dialogs/Makefile.am	Sun Nov 25 00:34:07 2001
+@@ -12,7 +12,9 @@
+ INCLUDES = \
+ 	-DSODIPODI_GLADEDIR=\""$(gladedir)"\" \
+ 	-I$(includedir) \
+-	$(GNOME_INCLUDEDIR)
++	$(GNOME_INCLUDEDIR) \
++	@GLADE_CFLAGS@ \
++	@PIXBUF_CFLAGS@
+ 
+ noinst_LIBRARIES = libspdialogs.a
+ 
+diff -urN sodipodi-0.24.orig/src/display/Makefile.am sodipodi-0.24/src/display/Makefile.am
+--- sodipodi-0.24.orig/src/display/Makefile.am	Sun May  6 17:54:07 2001
++++ sodipodi-0.24/src/display/Makefile.am	Sun Nov 25 00:34:07 2001
+@@ -37,7 +37,8 @@
+ 
+ INCLUDES = \
+ 	-I$(includedir) \
+-	$(GNOME_INCLUDEDIR)
++	$(GNOME_INCLUDEDIR) \
++	@PIXBUF_CFLAGS@
+ 
+ noinst_LIBRARIES = libspdisplay.a
+ 
+diff -urN sodipodi-0.24.orig/src/helper/Makefile.am sodipodi-0.24/src/helper/Makefile.am
+--- sodipodi-0.24.orig/src/helper/Makefile.am	Fri Dec 15 04:22:39 2000
++++ sodipodi-0.24/src/helper/Makefile.am	Sun Nov 25 00:34:07 2001
+@@ -6,7 +6,8 @@
+ 
+ INCLUDES = \
+ 	-I$(includedir) \
+-	-I$(GNOME_INCLUDEDIR)
++	$(GNOME_INCLUDEDIR) \
++	@PIXBUF_CFLAGS@
+ 
+ noinst_LIBRARIES = libspchelp.a
+ 
