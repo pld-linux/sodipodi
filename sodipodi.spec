@@ -1,7 +1,7 @@
-Name:		sodipodi
 Summary:	A Gnome Vector Graphics Application
+Name:		sodipodi
 Version:	0.20
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications/Graphics
 Group(de):	Applikationen/Grafik
