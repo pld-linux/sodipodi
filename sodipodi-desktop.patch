@@ -6,7 +6,7 @@ diff -urN aaa/sodipodi-0.33/sodipodi.desktop.in sodipodi-0.33/sodipodi.desktop.i
  
  Type=Application
 -Categories=Application;Graphics;
-+Categories=Application;Graphics;VectorGraphics;
++Categories=GTK;GNOME;Graphics;VectorGraphics;
  MimeType=image/svg+xml
  
  FilePattern=sodipodi
