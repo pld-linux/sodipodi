@@ -6,6 +6,7 @@ Release:	0.1
 License:	GPL
 Group:		Applications/Graphics
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+# Source0-md5:	217c2939b733f030e28e6cbfd8492c9e
 Patch0:		%{name}-desktop.patch
 URL:		http://sodipodi.sourceforge.net/
 BuildRequires:	autoconf
