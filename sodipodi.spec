@@ -38,7 +38,7 @@ Sodipodi jest ogólnym programem do rysowania wektorowego dla
 
 %build
 rm -f missing
-gettextize --copy --force
+%{__gettextize}
 aclocal -I macros
 %{__autoconf}
 %{__automake}
@@ -52,8 +52,6 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	sysdir=%{_applnkdir}/Graphics
 
-gzip -9nf AUTHORS ChangeLog NEWS README TODO
-
 %find_lang %{name}
 
 %clean
@@ -61,7 +59,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc *.gz
+%doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/sodipodi
 %{_datadir}/oaf/*
