@@ -29,7 +29,7 @@ Sodipodi is a gneneral vector drawing program for GNOME environment.
 
 %build
 gettextize --copy --force
-aclocal
+aclocal -I macros
 autoconf
 automake -a -c
 %configure
