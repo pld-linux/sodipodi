@@ -17,6 +17,7 @@ BuildRequires:	gettext-devel
 BuildRequires:	gnome-print-devel => 0.28
 BuildRequires:	libglade-devel
 BuildRequires:	oaf-devel
+BuildRequires:	gdk-pixbuf-gnome-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
