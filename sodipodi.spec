@@ -41,7 +41,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	Graphicsdir=%{_datadir}/applications
+	Graphicsdir=%{_desktopdir}
 
 %find_lang %{name}
 
@@ -55,5 +55,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/sodipodi
 %{_mandir}/man1/*
 %{_pixmapsdir}/*
-%{_datadir}/applications/*
+%{_desktopdir}/*
 %{_libdir}/%{name}
