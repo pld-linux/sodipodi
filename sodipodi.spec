@@ -1,7 +1,7 @@
 Summary:	A Gnome Vector Graphics Application
 Name:		sodipodi
-Version:	0.22
-Release:	4
+Version:	0.23
+Release:	1
 License:	GPL
 Group:		Applications/Graphics
 Group(de):	Applikationen/Grafik
@@ -31,6 +31,7 @@ Sodipodi is a gneneral vector drawing program for GNOME environment.
 gettextize --copy --force
 aclocal -I macros
 autoconf
+rm -f missing
 automake -a -c
 %configure
 %{__make}
@@ -54,5 +55,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/sodipodi
+%{_datadir}/oaf/*
 %{_pixmapsdir}/*
 %{_applnkdir}/Graphics/*
