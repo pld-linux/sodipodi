@@ -1,25 +1,21 @@
 Summary:	A Gnome Vector Graphics Application
 Summary(pl):	Aplikacja do grafiki wektorowej dla GNOME
 Name:		sodipodi
-Version:	0.27
+Version:	0.29
 Release:	0.1
 License:	GPL
 Group:		Applications/Graphics
-Source0:	http://download.sourceforge.net/sodipodi/%{name}-%{version}.tar.gz
-Patch0:		%{name}-oaf.patch
+Source0:	http://prdownloads.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+Patch0:		%{name}-desktop.patch
 URL:		http://sodipodi.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	bonobo-devel >= 0.28
-BuildRequires:	gal-devel >= 0.19
-BuildRequires:	gdk-pixbuf-gnome-devel
+BuildRequires:	gtk+2-devel >= 2.0.0
+BuildRequires:	libart_lgpl-devel >= 2.3.10
+BuildRequires:	libxml2-devel >= 2.4.24
 BuildRequires:	gettext-devel
-BuildRequires:	gnome-print-devel => 0.28
-BuildRequires:	libglade-gnome-devel
-BuildRequires:	oaf-devel
+BuildRequires:	pkgconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_sysconfdir	/etc/X11/GNOME
 
 %description
 Sodipodi is a general vector drawing program for GNOME environment.
@@ -30,18 +26,10 @@ Sodipodi jest ogólnym programem do rysowania wektorowego dla
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
-touch po/POTFILES
-rm -f missing
-%{__gettextize}
-%{__aclocal} -I macros
-%{__automake}
-%{__autoconf}
 %configure
-
-cat po/Makevars.template po/Makefile > po/tmp
-mv -f po/tmp po/Makefile
 
 %{__make}
 
@@ -50,7 +38,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT \
-	sysdir=%{_applnkdir}/Graphics
+	Graphicsdir=%{_datadir}/applications
 
 %find_lang %{name}
 
@@ -62,7 +50,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/sodipodi
-%{_datadir}/oaf/*
 %{_mandir}/man1/*
 %{_pixmapsdir}/*
-%{_applnkdir}/Graphics/*
+%{_datadir}/applications/*
