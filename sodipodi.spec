@@ -1,7 +1,7 @@
 Summary:	A Gnome Vector Graphics Application
 Name:		sodipodi
 Version:	0.20
-Release:	2
+Release:	3
 License:	GPL
 Group:		Applications/Graphics
 Group(de):	Applikationen/Grafik
@@ -10,6 +10,7 @@ Source0:	ftp://download.sourceforge.net/pub/sourceforge/sodipodi/%{name}-%{versi
 Patch0:		%{name}-DESTDIR.patch
 Patch1:		%{name}-bonobo.patch
 URL:		http://www.ariman.ee/linux/sodipodi/
+BuildRequires:	bonobo-devel >= 0.28
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-print-devel => 0.24
 BuildRequires:	libglade-devel
