@@ -1,8 +1,12 @@
-diff -urN sodipodi-0.29.orig/sodipodi.desktop.in sodipodi-0.29/sodipodi.desktop.in
---- sodipodi-0.29.orig/sodipodi.desktop.in	Tue Jan 28 20:10:22 2003
-+++ sodipodi-0.29/sodipodi.desktop.in	Tue Jan 28 20:15:25 2003
-@@ -5,3 +5,4 @@
- Terminal=0
+diff -urN aaa/sodipodi-0.33/sodipodi.desktop.in sodipodi-0.33/sodipodi.desktop.in
+--- aaa/sodipodi-0.33/sodipodi.desktop.in	2003-05-08 20:51:48.000000000 +0200
++++ sodipodi-0.33/sodipodi.desktop.in	2003-12-13 00:28:16.000000000 +0100
+@@ -6,7 +6,7 @@
+ Version=1.0
+ 
  Type=Application
- Icon=sodipodi.png
+-Categories=Application;Graphics
 +Categories=Application;Graphics;VectorGraphics;
+ MimeType=image/svg+xml
+ 
+ FilePattern=sodipodi
