@@ -55,5 +55,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/sodipodi
-%{_datadir}/pixmaps/*
+%{_pixmapsdir}/*
 %{_applnkdir}/Graphics/*
