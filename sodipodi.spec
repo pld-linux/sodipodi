@@ -1,7 +1,7 @@
 Summary:	A Gnome Vector Graphics Application
 Name:		sodipodi
-Version:	0.23
-Release:	4
+Version:	0.24
+Release:	1
 License:	GPL
 Group:		Applications/Graphics
 Group(de):	Applikationen/Grafik
@@ -20,6 +20,7 @@ BuildRequires:	oaf-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
+%define		_mandir		%{_prefix}/man
 %define		_sysconfdir	/etc/X11/GNOME
 
 %description
@@ -58,5 +59,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_datadir}/sodipodi
 %{_datadir}/oaf/*
+%{_mandir}/man1/*
 %{_pixmapsdir}/*
 %{_applnkdir}/Graphics/*
