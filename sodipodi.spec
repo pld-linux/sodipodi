@@ -1,4 +1,4 @@
-Summary:	A Gnome Vector Graphics Application
+Summary:	A GNOME Vector Graphics Application
 Summary(pl):	Aplikacja do grafiki wektorowej dla GNOME
 Name:		sodipodi
 Version:	0.32
