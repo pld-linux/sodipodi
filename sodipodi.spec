@@ -1,16 +1,13 @@
 Summary:	A Gnome Vector Graphics Application
 Name:		sodipodi
-Version:	0.21
+Version:	0.22
 Release:	1
 License:	GPL
 Group:		Applications/Graphics
 Group(de):	Applikationen/Grafik
 Group(pl):	Aplikacje/Grafika
-Source0:	ftp://download.sourceforge.net/pub/sourceforge/sodipodi/%{name}-%{version}.tar.gz
-Patch0:		%{name}-DESTDIR.patch
-URL:		http://www.ariman.ee/linux/sodipodi/
-BuildRequires:	autoconf
-BuildRequires:	automake
+Source0:	http://download.sourceforge.net/sodipodi/%{name}-%{version}.tar.gz
+URL:		http://sodipodi.sourceforge.net/
 BuildRequires:	bonobo-devel >= 0.28
 BuildRequires:	gettext-devel
 BuildRequires:	gnome-print-devel => 0.24
@@ -26,13 +23,9 @@ Sodipodi is a gneneral vector drawing program for GNOME environment.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 gettextize --copy --force
-aclocal -I macros
-autoconf
-automake -a -c
 %configure
 %{__make}
 
