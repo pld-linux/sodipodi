@@ -5,7 +5,7 @@ diff -urN aaa/sodipodi-0.33/sodipodi.desktop.in sodipodi-0.33/sodipodi.desktop.i
  Version=1.0
  
  Type=Application
--Categories=Application;Graphics
+-Categories=Application;Graphics;
 +Categories=Application;Graphics;VectorGraphics;
  MimeType=image/svg+xml
  
