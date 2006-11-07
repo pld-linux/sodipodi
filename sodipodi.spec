@@ -78,5 +78,5 @@ umask 022
 %{_datadir}/sodipodi
 %{_mandir}/man1/*
 %{_pixmapsdir}/*
-%{_desktopdir}/*
+%{_desktopdir}/*.desktop
 %{_libdir}/%{name}
