@@ -3,7 +3,7 @@
 %bcond_without	gnome	# without gnome-print support
 #
 Summary:	A GNOME Vector Graphics Application
-Summary(pl.UTF-8):   Aplikacja do grafiki wektorowej dla GNOME
+Summary(pl.UTF-8):	Aplikacja do grafiki wektorowej dla GNOME
 Name:		sodipodi
 Version:	0.34
 Release:	4
