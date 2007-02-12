@@ -3,7 +3,7 @@
 %bcond_without	gnome	# without gnome-print support
 #
 Summary:	A GNOME Vector Graphics Application
-Summary(pl):	Aplikacja do grafiki wektorowej dla GNOME
+Summary(pl.UTF-8):   Aplikacja do grafiki wektorowej dla GNOME
 Name:		sodipodi
 Version:	0.34
 Release:	4
@@ -33,9 +33,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Sodipodi is a general vector drawing program for GNOME environment.
 
-%description -l pl
-Sodipodi jest ogólnym programem do rysowania wektorowego dla
-¶rodowiska GNOME.
+%description -l pl.UTF-8
+Sodipodi jest ogÃ³lnym programem do rysowania wektorowego dla
+Å›rodowiska GNOME.
 
 %prep
 %setup -q
