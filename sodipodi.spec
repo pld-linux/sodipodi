@@ -6,7 +6,7 @@ Summary:	A GNOME Vector Graphics Application
 Summary(pl.UTF-8):	Aplikacja do grafiki wektorowej dla GNOME
 Name:		sodipodi
 Version:	0.34
-Release:	5
+Release:	6
 License:	GPL
 Group:		Applications/Graphics
 Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
