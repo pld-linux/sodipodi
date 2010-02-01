@@ -9,7 +9,7 @@ Version:	0.34
 Release:	6
 License:	GPL
 Group:		Applications/Graphics
-Source0:	http://dl.sourceforge.net/%{name}/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/sodipodi/%{name}-%{version}.tar.gz
 # Source0-md5:	396cd78526e5a8102fd11114f45a70fe
 Patch0:		%{name}-desktop.patch
 Patch1:		%{name}-home_etc.patch
@@ -17,11 +17,12 @@ Patch2:		%{name}-locale_names.patch
 URL:		http://sodipodi.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gettext-devel
 BuildRequires:	freetype-devel
+BuildRequires:	gettext-devel
 BuildRequires:	gtk+2-devel >= 1:2.0.0
 BuildRequires:	libart_lgpl-devel >= 2.3.10
 %{?with_gnome:BuildRequires:	libgnomeprint-devel >= 2.0.0}
+%{?with_gnome:BuildRequires:	libgnomeprintui-devel >= 2.0.0}
 BuildRequires:	libpng-devel
 BuildRequires:	libxml2-devel >= 2.4.24
 BuildRequires:	pkgconfig
