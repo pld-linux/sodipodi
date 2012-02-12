@@ -1,5 +1,5 @@
---- ../../BUILD/sodipodi-0.34/src/helper/png-write.c~	2004-02-09 20:01:16.000000000 +0100
-+++ ../../BUILD/sodipodi-0.34/src/helper/png-write.c	2012-02-12 13:12:20.779162364 +0100
+--- sodipodi-0.34/src/helper/png-write.c~	2004-02-09 20:01:16.000000000 +0100
++++ sodipodi-0.34/src/helper/png-write.c	2012-02-12 13:12:20.779162364 +0100
 @@ -282,7 +282,7 @@
  	/* Set error handling.  REQUIRED if you aren't supplying your own
  	 * error hadnling functions in the png_create_write_struct() call.
