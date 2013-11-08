@@ -1,0 +1,11 @@
+--- sodipodi-0.34/src/help.c~	2004-02-06 22:24:55.000000000 +0100
++++ sodipodi-0.34/src/help.c	2013-11-08 08:38:05.983786203 +0100
+@@ -69,7 +69,7 @@
+ sp_help_about_module (const unsigned char *text)
+ {
+ 	GtkWidget *w;
+-	w = gtk_message_dialog_new (NULL, GTK_DIALOG_MODAL, GTK_MESSAGE_INFO, GTK_BUTTONS_OK, text);
++	w = gtk_message_dialog_new (NULL, GTK_DIALOG_MODAL, GTK_MESSAGE_INFO, GTK_BUTTONS_OK, "%s", text);
+ 	gtk_dialog_run (GTK_DIALOG (w));
+ 	gtk_widget_destroy (w);
+ }
