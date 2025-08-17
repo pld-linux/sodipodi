@@ -1,0 +1,78 @@
+--- sodipodi-0.34/src/libnrtype/nr-type-ft2.c~	2003-11-17 23:16:50.000000000 +0100
++++ sodipodi-0.34/src/libnrtype/nr-type-ft2.c	2025-08-17 17:14:31.884046137 +0200
+@@ -553,7 +553,7 @@ typedef struct {
+ 	float *t;
+ } TFFT2OutlineData;
+ 
+-static int tfft2_move_to (FT_Vector * to, void * user)
++static int tfft2_move_to (const FT_Vector * to, void * user)
+ {
+ 	TFFT2OutlineData * od;
+ 	NRPointF p;
+@@ -575,7 +575,7 @@ static int tfft2_move_to (FT_Vector * to
+ 	return 0;
+ }
+ 
+-static int tfft2_line_to (FT_Vector * to, void * user)
++static int tfft2_line_to (const FT_Vector * to, void * user)
+ {
+ 	TFFT2OutlineData * od;
+ 	ArtBpath *s;
+@@ -598,7 +598,7 @@ static int tfft2_line_to (FT_Vector * to
+ 	return 0;
+ }
+ 
+-static int tfft2_conic_to (FT_Vector * control, FT_Vector * to, void * user)
++static int tfft2_conic_to (const FT_Vector * control, const FT_Vector * to, void * user)
+ {
+ 	TFFT2OutlineData *od;
+ 	ArtBpath *s, *e;
+@@ -625,7 +625,7 @@ static int tfft2_conic_to (FT_Vector * c
+ 	return 0;
+ }
+ 
+-static int tfft2_cubic_to (FT_Vector * control1, FT_Vector * control2, FT_Vector * to, void * user)
++static int tfft2_cubic_to (const FT_Vector * control1, const FT_Vector * control2, const FT_Vector * to, void * user)
+ {
+ 	TFFT2OutlineData * od;
+ 
+--- sodipodi-0.34/src/helper/png-write.c~	2025-08-17 17:15:11.000000000 +0200
++++ sodipodi-0.34/src/helper/png-write.c	2025-08-17 17:16:01.577913578 +0200
+@@ -13,6 +13,7 @@
+  */
+ 
+ #include <png.h>
++#include <unistd.h>
+ 
+ #ifdef WIN32
+ #include "modules/win32.h"
+--- sodipodi-0.34/src/modules/gnome.c.org	2003-12-06 22:37:06.000000000 +0100
++++ sodipodi-0.34/src/modules/gnome.c	2025-08-17 17:23:02.843754036 +0200
+@@ -29,6 +29,8 @@
+ #include <libgnomeprintui/gnome-print-master-preview.h>
+ #endif
+ #include <libgnomeprintui/gnome-print-dialog.h>
++#include <libgnomeprintui/gnome-print-paper-selector.h>
++
+ 
+ #include "helper/sp-intl.h"
+ #include "enums.h"
+@@ -166,7 +168,7 @@ sp_module_print_gnome_setup (SPModulePri
+ 	vbox = GTK_DIALOG (dlg)->vbox;
+ 	gtk_container_set_border_width (GTK_CONTAINER (vbox), 4);
+ 
+-        sel = gnome_printer_selector_new (config);
++	sel = gnome_paper_selector_new (config);
+ 	gtk_widget_show (sel);
+ 	gtk_box_pack_start (GTK_BOX (vbox), sel, TRUE, TRUE, 0);
+ 
+@@ -331,7 +333,7 @@ sp_module_print_gnome_fill (SPModulePrin
+ 		dpbox.y0 = pbox->y0;
+ 		dpbox.x1 = pbox->x1;
+ 		dpbox.y1 = pbox->y1;
+-		painter = sp_paint_server_painter_new (SP_STYLE_FILL_SERVER (style), NR_MATRIX_D_TO_DOUBLE (&dctm), &dpbox);
++		painter = sp_paint_server_painter_new (SP_STYLE_FILL_SERVER (style), NR_MATRIX_D_TO_DOUBLE (&dctm), (void *)&dpbox);
+ 		if (painter) {
+ 			NRRectF cbox;
+ 			NRRectL ibox;
+

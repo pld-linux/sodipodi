@@ -16,6 +16,7 @@ Patch1:		%{name}-home_etc.patch
 Patch2:		%{name}-locale_names.patch
 Patch3:		%{name}-libpng15.patch
 Patch4:		format-security.patch
+Patch5:		build.patch
 URL:		http://sodipodi.sourceforge.net/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -49,6 +50,7 @@ Sodipodi jest ogólnym programem do rysowania wektorowego dla
 %patch -P2 -p1
 %patch -P3 -p1
 %patch -P4 -p1
+%patch -P5 -p1
 
 mv -f po/{no,nb}.po
 mv -f po/sr\@{Latn,latin}.po
