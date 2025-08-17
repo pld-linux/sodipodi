@@ -76,3 +76,14 @@
  			NRRectF cbox;
  			NRRectL ibox;
 
+--- sodipodi-0.34/src/helper/units.h~	2002-11-28 13:18:50.000000000 +0100
++++ sodipodi-0.34/src/helper/units.h	2025-08-17 17:37:08.678786807 +0200
+@@ -50,7 +50,7 @@ enum {
+ 	SP_UNIT_DEVICE = (1 << 2), /* Semi-real device-dependent distances i.e. pixels */
+ 	SP_UNIT_USERSPACE = (1 << 3), /* Mathematical coordinates */
+ 	SP_UNIT_VOLATILE = (1 << 4) /* em and ex */
+-} SPUnitBase;
++};
+ 
+ /*
+  * Notice, that for correct menus etc. you have to use
